@@ -1,0 +1,29 @@
+/*
+    flyingsaucer does not implements font fallback like "font-family: Calibri, NotoSansCJKtc, sans-serif;"
+    Thus we use a different font for each language that uses characters which are not in Calibri.
+    See: https://github.com/flyingsaucerproject/flyingsaucer/pull/79
+
+    And the font are separated in specific CSS files in order to avoid iText to loaded all of them in memory for every PDF generation
+    See: https://support.mirakl.net/browse/MMP-12918
+*/
+
+@font-face {
+    font-family: Calibri;
+    font-weight: normal;
+    src: url('./Calibri.ttf');
+    -fs-pdf-font-embed: not-embed;
+    -fs-pdf-font-encoding: Identity-H;
+}
+
+@font-face {
+    font-family: Calibri;
+    font-weight: bold;
+    src: url('./Calibri_Bold.ttf');
+    -fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H;
+}
+
+.latin-font {
+    font-family: Calibri;
+}
+
